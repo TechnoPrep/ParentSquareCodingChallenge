@@ -35,9 +35,11 @@ const sectionsArr = arrToObj(csvToArr(sectionsCSV));
 // Output Sections with no Students Enrolled
 // console.log(secNoStu(sectionsArr, rostersArr));
 
+// Out Section, Course Name, and Array of Enrolled Students
+//console.log(secAndStu(rostersArr, sectionsArr))
 
-
-
+// Output a list of Staff who are listed in the Section File
+//console.log(staffToSec(staffArr, sectionsArr));
 
 
 
