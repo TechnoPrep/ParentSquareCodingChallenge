@@ -1,10 +1,5 @@
 // Import Functions
-const { arrToObj, csvToArr } = require('./helpers/CsvToObj');
-const { countLangs, pickHighest } = require('./helpers/TopLangs');
-const { stuNoCell } = require('./helpers/StuNoCell');
-const { getSectionIds, getStuBySec } = require('./helpers/StuInSec');
-const { missingParentContact } = require('./helpers/MissingParents');
-
+const { arrToObj, csvToArr } = require('./challenges/CsvToObj');
 
 // Input File Locations
 const parentsCSV = __dirname + '/data/parents.csv';
@@ -22,29 +17,7 @@ const rostersArr = arrToObj(csvToArr(rostersCSV));
 const sectionsArr = arrToObj(csvToArr(sectionsCSV));
 const langArr = arrToObj(csvToArr(languageCSV));
 
-// Out put Top n languages of Parents
-// console.log(pickHighest(countLangs(parentsArr),3));
-
-// Output students with no CellNumber
-// console.log(stuNoCell(studentsArr));
-
-// Output Student in Section
-// console.log(getStuBySec(getSectionIds(sectionsArr, 'Physics 9'), rostersArr, studentsArr));
-
-// Output Students with Missing Parents or Parents with no Contact Details
-// console.log(missingParentContact(studentsArr, parentsArr));
-
-// Output Sections with no Students Enrolled
-// console.log(secNoStu(sectionsArr, rostersArr));
-
-// Out Section, Course Name, and Array of Enrolled Students
-//console.log(secAndStu(rostersArr, sectionsArr))
-
-// Output a list of Staff who are listed in the Section File
-//console.log(staffToSec(staffArr, sectionsArr));
-
-// Output a list of language / code pairs from the parent.csv
-//console.log(langToISOCode(langArr, parentsArr));
+module.exports = { parentsArr, studentsArr, staffArr, rostersArr, sectionsArr, langArr }
 
 
 
