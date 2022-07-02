@@ -1,6 +1,6 @@
 const stuNoCell = (studentsArr) => {
 
-  let noCell = studentsArr.map((stu) => {
+  return studentsArr.map((stu) => {
     if(stu.cellphone === '' || stu.cellphone === null || stu.cellphone === undefined){
       let obj = {
         student_id: stu.student_id,
@@ -10,9 +10,7 @@ const stuNoCell = (studentsArr) => {
       
       return obj 
     }
-  })
-
-  return noCell.filter(x => x != undefined)
+  }).filter(x => x != undefined);  
 
 }
 
