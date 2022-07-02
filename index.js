@@ -12,6 +12,7 @@ const studentsCSV = __dirname + '/data/students.csv';
 const staffCSV = __dirname + '/data/staff.csv';
 const rostersCSV = __dirname + '/data/rosters.csv';
 const sectionsCSV = __dirname + '/data/sections.csv';
+const languageCSV = __dirname + '/data/language_codes.csv';
 
 //Create Arrays and Objects
 const parentsArr = arrToObj(csvToArr(parentsCSV));
@@ -19,6 +20,7 @@ const studentsArr = arrToObj(csvToArr(studentsCSV));
 const staffArr = arrToObj(csvToArr(staffCSV));
 const rostersArr = arrToObj(csvToArr(rostersCSV));
 const sectionsArr = arrToObj(csvToArr(sectionsCSV));
+const langArr = arrToObj(csvToArr(languageCSV));
 
 // Out put Top n languages of Parents
 // console.log(pickHighest(countLangs(parentsArr),3));
@@ -40,6 +42,10 @@ const sectionsArr = arrToObj(csvToArr(sectionsCSV));
 
 // Output a list of Staff who are listed in the Section File
 //console.log(staffToSec(staffArr, sectionsArr));
+
+// Output a list of language / code pairs from the parent.csv
+//console.log(langToISOCode(langArr, parentsArr));
+
 
 
 
