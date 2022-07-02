@@ -1,12 +1,18 @@
 const { parentsArr } = require('../index');
 
+/**
+ * This function creates an Object that contains the Languauge: Count
+ * @param {*} arr 
+ * @returns {OBJECT}
+ */
+
 const countLangs = (arr) => {
-  const langs = arr.map((row) => {
+  const langs = arr.map((par) => {
     // Check if language is blank
-    if(row.language === ''){
+    if(par.language === ''){
       return 'No Language'
     }
-    return row.language
+    return par.language
   })
 
   //Create a Object for Languages to be stored
@@ -30,6 +36,12 @@ const countLangs = (arr) => {
 
 }
 
+/**
+ * This function sorts and returns the top n values
+ * @param {*} obj 
+ * @param {*} num 
+ * @returns {OBJECT}
+ */
 const pickHighest = (obj, num = 1) => {
 
   const objOut = {};
@@ -50,10 +62,6 @@ const pickHighest = (obj, num = 1) => {
   return objOut;
 
 }
-
-// module.exports = { countLangs, pickHighest } 
-
-//console.log(parentsArr);
 
 // Out put Top n languages of Parents
 console.log(pickHighest(countLangs(parentsArr),3));

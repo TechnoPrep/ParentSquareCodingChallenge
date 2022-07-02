@@ -1,5 +1,11 @@
 const { sectionsArr, rostersArr } = require('../index');
 
+/**
+ * This function returns an array of sections that do not have any students currently enrolled.
+ * @param {*} sectionsArr 
+ * @param {*} rostersArr 
+ * @returns [] or false if no records match
+ */
 const secNoStu = (sectionsArr, rostersArr) => {
 
   let rosterData = rostersArr.map(rost => rost.section_id);
@@ -13,11 +19,7 @@ const secNoStu = (sectionsArr, rostersArr) => {
     }
   })
 
-  if(secData.length === 0){
-    return 'All Sections have Students Enrolled'
-  }
-
-  return secData;
+  return secData.length === 0 ? false : secData;
 
 }
 

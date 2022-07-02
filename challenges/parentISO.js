@@ -1,5 +1,12 @@
 const { langArr, parentsArr } = require('../index');
 
+
+/**
+ * This function takes in the list of Languages and parentArr and returns an object of lang: code that exist in the parent files.
+ * @param {*} langArr 
+ * @param {*} parentsArr 
+ * @returns {}
+ */
 const langToISOCode = (langArr, parentsArr) => {
 
   const langs = parentsArr.map((row) => {

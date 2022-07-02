@@ -2,7 +2,7 @@ const { studentsArr } = require('../index');
 
 const stuNoCell = (studentsArr) => {
 
-  return studentsArr.map((stu) => {
+  return studentsArr.filter((stu) => {
     if(stu.cellphone === '' || stu.cellphone === null || stu.cellphone === undefined){
       let obj = {
         student_id: stu.student_id,
@@ -12,7 +12,7 @@ const stuNoCell = (studentsArr) => {
       
       return obj 
     }
-  }).filter(x => x != undefined);  
+  }) 
 
 }
 

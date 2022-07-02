@@ -1,5 +1,11 @@
 const { studentsArr, parentsArr } = require('../index');
 
+/**
+ * This function returns an array of students who do not have a parent in the parent.csv file, or the parent has no phone AND email
+ * @param {*} studentArr 
+ * @param {*} parentArr 
+ * @returns [ {} ]
+ */
 const missingParentContact = (studentArr, parentArr) => {
   //List of Stu Ids
   let stuData = studentArr.map(stu => stu.student_id);
