@@ -2,6 +2,8 @@
 const { arrToObj, csvToArr } = require('./helpers/CsvToObj');
 const { countLangs, pickHighest } = require('./helpers/TopLangs');
 const { stuNoCell } = require('./helpers/StuNoCell');
+const { getSectionIds, getStuBySec } = require('./helpers/StuInSec');
+
 
 
 // Input File Locations
@@ -23,6 +25,10 @@ console.log(pickHighest(countLangs(parentsArr),3));
 
 // Output students with no CellNumber
 console.log(stuNoCell(studentsArr));
+
+// Output Student in Section
+console.log(getStuBySec(getSectionIds(sectionsArr, 'Physics 9'), rostersArr, studentsArr));
+
 
 
 
