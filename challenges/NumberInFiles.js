@@ -1,5 +1,15 @@
 const { studentsArr, parentsArr, staffArr } = require('../index');
 
+
+/**
+ * This function takes in 3 arrays, builds an new array while checking if the number exists in the new array or not
+ * If it does exist, append obj.files with additional fileName the number was found in, if it doesn't exist, create it.
+ * 
+ * @param {*} stu 
+ * @param {*} par 
+ * @param {*} staff 
+ * @returns Only numbers that are contained in two or more files
+ */
 const listOfUnqiueNumbers = (stu, par, staff) => {
 
   let unqiueNums = []
