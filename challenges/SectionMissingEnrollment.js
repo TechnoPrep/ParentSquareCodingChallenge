@@ -8,18 +8,6 @@ const { sectionsArr, rostersArr } = require('../index');
  */
 const secNoStu = (sectionsArr, rostersArr) => {
 
-  // 
-  // let rosterData = rostersArr.map(rost => rost.section_id);
-
-  // let secData = sectionsArr.filter((sec) => {
-  //   if(rosterData.indexOf(sec.section_id) === -1){
-  //     return {
-  //       section_id: sec.section_id,
-  //       course_name: sec.course_name
-  //     }
-  //   }
-  // })
-
   //Iterate through the rosterArr
   rostersArr.map((ros) => {
     //Iterate through the sectionArr
