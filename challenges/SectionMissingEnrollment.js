@@ -8,19 +8,41 @@ const { sectionsArr, rostersArr } = require('../index');
  */
 const secNoStu = (sectionsArr, rostersArr) => {
 
-  let rosterData = rostersArr.map(rost => rost.section_id);
+  // 
+  // let rosterData = rostersArr.map(rost => rost.section_id);
 
-  let secData = sectionsArr.filter((sec) => {
-    if(rosterData.indexOf(sec.section_id) === -1){
-      return {
-        section_id: sec.section_id,
-        course_name: sec.course_name
+  // let secData = sectionsArr.filter((sec) => {
+  //   if(rosterData.indexOf(sec.section_id) === -1){
+  //     return {
+  //       section_id: sec.section_id,
+  //       course_name: sec.course_name
+  //     }
+  //   }
+  // })
+
+  //Iterate through the rosterArr
+  rostersArr.map((ros) => {
+    //Iterate through the sectionArr
+    sectionsArr.map((sec) => {
+      if(ros.section_id === sec.section_id){
+        //If roster and section section_id match, check if the section obj has the 
+        //student_count, property, if not, set it to'1'
+        if(!sec.hasOwnProperty('student_count')){
+          sec.student_count = 1;
+        }
+
+        //Add a count to that sections student_count property
+        sec.student_count++;
       }
-    }
+    })
   })
 
-  return secData.length === 0 ? false : secData;
-
+  // Only return a section object if the student_count is 0
+  return sectionsArr.filter((sec) => {
+    if(sec.student_count === 0){
+      return sec
+    }
+  })
 }
 
 console.log(secNoStu(sectionsArr, rostersArr));
