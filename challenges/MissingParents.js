@@ -8,15 +8,15 @@ const { studentsArr, parentsArr } = require('../index');
  */
 const missingParentContact = (studentArr, parentArr) => {
   //Return an Array of student with no parents
-  let noPar = studentsArr.filter((stu) =>{
-    return !parentsArr.some((par) => {
+  let noPar = studentArr.filter((stu) =>{
+    return !parentArr.some((par) => {
       return stu.student_id === par.student_id
     })
   }) 
 
   //Return an array of students with parents, but no contact info
-  let noInfo = studentsArr.filter((stu) =>{
-    return parentsArr.some((par) => {
+  let noInfo = studentArr.filter((stu) =>{
+    return parentArr.some((par) => {
       if(stu.student_id === par.student_id && (par.email === '' && par.mobile === '')){
         return {student_id: stu.student_id}
       }
