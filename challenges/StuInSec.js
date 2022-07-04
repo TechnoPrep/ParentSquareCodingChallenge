@@ -1,48 +1,43 @@
 const { sectionsArr, rostersArr, studentsArr } = require('../index');
 
 /**
- * This functions takes the sectionArr and ClassName and returns an Array of section_id's
- * @param {*} arr 
- * @param {*} className 
- * @returns []
- */
-
-const getSectionIds = (arr, className) => {
-
-  return arr.map((sec) =>{
-    if(sec.course_name === className){
-      return sec.section_id
-    }
-  }).filter(x => x !=undefined);
-
-}
-
-/**
  * This function creates an array of Objects for students who are enrolled in a classname
  * @param {*} secArr 
  * @param {*} rosterArr 
- * @param {*} stuArr 
+ * @param {*} stuArr
+ * @param {*} classname
  * @returns [ {} ]
  */
-const getStuBySec = (secArr, rosterArr, stuArr) => {
+const stuInSec = (secArr, rosterArr, stuArr, classname) => {
 
-  //Create array of Students id's who exist are enrolled in the secArr
-  let stuInSec = rosterArr.map((rost) => {
-    if(secArr.includes(rost.section_id)){
-      return rost.student_id
+  // Returns a list of sections that match the Classname provided
+  let secList = secArr.filter((sec) => {
+    if(sec.course_name === classname){
+      return sec.section_id
     }
-  }).filter(x => x !=undefined);
+  })
 
-  // Returns an Array of Objects of students who are enrolled in the desired class.
-  return stuArr.map((stu)=>{
-    if(stuInSec.includes(stu.student_id)){
-       return { 
-         student_id: stu.student_id, 
-         first_name: stu.FirstName, 
-         last_name: stu.LastName 
-       }
+  // Returns Student Array
+  return stuArr.filter((stu) =>{
+    // Iterates through the rosterArr
+    return rosterArr.some((ros) => {
+      // If student_id matches in student and roster file
+      if(stu.student_id === ros.student_id){
+        // Iterates through the secList array
+        return secList.some((sec) =>{
+          // If section_id is included in the secList, return student
+          return sec.section_id === ros.section_id
+        })
+      }
+    })
+  }).map((stu) =>{
+    // Return in formatted Obj
+    return {
+      student_id: stu.student_id,
+      first_name: stu.FirstName,
+      last_name: stu.LastName
     }
-  }).filter(x => x !=undefined);
+  })
 }
 
-console.log(getStuBySec(getSectionIds(sectionsArr, 'Physics 9'), rostersArr, studentsArr));
+console.log(stuInSec(sectionsArr, rostersArr, studentsArr, 'Physics 9'));
