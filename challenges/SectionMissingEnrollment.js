@@ -1,3 +1,5 @@
+const { rostersArr, sectionsArr } = require('../index');
+
 /**
  * This function returns an array of sections that do not have any students currently enrolled.
  * @param {*} sectionsArr 
@@ -31,4 +33,4 @@ const secNoStu = (sectionsArr, rostersArr) => {
   })
 }
 
-module.exports = { secNoStu };
+console.log(secNoStu(sectionsArr, rostersArr))

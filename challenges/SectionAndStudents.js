@@ -1,3 +1,4 @@
+const {  rostersArr, sectionsArr } = require('../index');
 
 /**
  * This function takes in the Section and Roster data, returns an object of the sections_id, course_name, and an array of Id's
@@ -37,4 +38,4 @@ const secAndStu = (rostersArr, sectionsArr) => {
 
 }
 
-module.exports = { secAndStu };
+console.log(secAndStu(rostersArr, sectionsArr))

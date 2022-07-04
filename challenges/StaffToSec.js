@@ -1,3 +1,4 @@
+const { staffArr, sectionsArr } = require('../index');
 
 /**
  * This function returns a list of, if any, of staff members in the staff.csv and sections.csv file.
@@ -19,7 +20,7 @@ const staffToSec = (staff, section) => {
     }
   })
 
-  return staffData.length === 0 ? false : staffData
+  return staffData
 }
 
-module.exports = { staffToSec };
+console.log(staffToSec(staffArr, sectionsArr))

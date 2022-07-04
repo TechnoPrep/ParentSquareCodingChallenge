@@ -1,3 +1,4 @@
+const { parentsArr, studentsArr } = require('../index');
 
 /**
  * This function returns an array of students who do not have a parent in the parent.csv file, or the parent has no phone AND email
@@ -37,4 +38,4 @@ const missingParentContact = (studentArr, parentArr) => {
 
 }
 
-module.exports = { missingParentContact };
+console.log(missingParentContact(studentsArr, parentsArr));

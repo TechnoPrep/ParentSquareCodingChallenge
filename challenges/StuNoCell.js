@@ -1,3 +1,4 @@
+const { studentsArr } = require('../index');
 
 const stuNoCell = (studentsArr) => {
 
@@ -15,4 +16,4 @@ const stuNoCell = (studentsArr) => {
 
 }
 
-module.exports = { stuNoCell };
+console.log(stuNoCell(studentsArr));

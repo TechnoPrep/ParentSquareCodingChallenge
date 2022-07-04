@@ -1,4 +1,4 @@
-
+const { parentsArr} = require('../index');
 /**
  * This function creates an Object that contains the Languauge: Count
  * @param {*} arr 
@@ -60,4 +60,4 @@ const pickHighest = (obj, num = 1) => {
 
 }
 
-module.exports = { pickHighest, countLangs};
+console.log(pickHighest(countLangs(parentsArr),3));

@@ -1,5 +1,4 @@
-// const { langArr, parentsArr } = require('../index.cjs');
-
+const { parentsArr, langArr } = require('../index');
 
 /**
  * This function takes in the list of Languages and parentArr and returns an object of lang: code that exist in the parent files.
@@ -33,6 +32,4 @@ const langToISOCode = (langArr, parentsArr) => {
   return langObj;
 }
 
-// console.log(langToISOCode(langArr, parentsArr));
-
-module.exports = { langToISOCode };
+console.log(langToISOCode(langArr, parentsArr));

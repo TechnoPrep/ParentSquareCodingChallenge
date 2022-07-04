@@ -1,4 +1,4 @@
-
+const { parentsArr, studentsArr, staffArr } = require('../index');
 
 /**
  * This function takes in 3 arrays, builds an new array while checking if the number exists in the new array or not
@@ -81,4 +81,4 @@ const listOfUnqiueNumbers =  (stu, par, staff) => {
 
 }
 
-module.exports = { listOfUnqiueNumbers };
+console.log(listOfUnqiueNumbers(studentsArr, parentsArr, staffArr));

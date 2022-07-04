@@ -1,4 +1,4 @@
-const { chooseClassName } = require('../index.cjs');
+const {studentsArr, rostersArr, sectionsArr } = require('../index');
 
 /**
  * This function creates an array of Objects for students who are enrolled in a classname
@@ -8,9 +8,7 @@ const { chooseClassName } = require('../index.cjs');
  * @param {*} classname
  * @returns [ {} ]
  */
-const stuInSec = (secArr, rosterArr, stuArr) => {
-
-  const classname = chooseClassName();
+const stuInSec = (secArr, rosterArr, stuArr, classname) => {
 
   // Returns a list of sections that match the Classname provided
   let secList = secArr.filter((sec) => {
@@ -42,4 +40,4 @@ const stuInSec = (secArr, rosterArr, stuArr) => {
   })
 }
 
-module.exports = { stuInSec };
+console.log(stuInSec(sectionsArr, rostersArr, studentsArr, 'Physics 9'))
