@@ -2,13 +2,16 @@
   "dependencies": {
     "csv-parse": "^5.2.2",
     "csv-parser": "^3.0.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.1.5"
   },
   "name": "coding-challenge",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.cjs",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.cjs"
   },
   "keywords": [],
   "author": "",
