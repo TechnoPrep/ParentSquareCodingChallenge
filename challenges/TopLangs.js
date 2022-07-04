@@ -17,21 +17,19 @@ const countLangs = (arr) => {
 
   //Create a Object for Languages to be stored
   const langObj = {}
-  
-  // Count Languages
-  for (let i = 0; i < langs.length; i++) {
-    const lang = langs[i];
-    const key = lang;
 
-    // Check if lang exists in langObj, if not, create with value of 1
+  // Iterate through langs array
+  langs.map((lang) =>{
+    // Check if lang exists in langObj
     if(!(lang in langObj)){
-      langObj[key] = 1
+      // create property in langObj with initial value of 1
+      langObj[lang] = 1
     } else {
-    // If it does, update value
-     langObj[lang]++
+      // Add to property value 
+      langObj[lang]++
     }
-  }
-
+  })
+  
   return langObj;
 
 }
@@ -47,6 +45,7 @@ const pickHighest = (obj, num = 1) => {
   const objOut = {};
   //Return false if num is greater than obj length
   if(num > Object.keys(obj).length){
+    console.log("Request exceeds number of Languages");
     return false;
   };
 
@@ -56,7 +55,6 @@ const pickHighest = (obj, num = 1) => {
     if(ind < num){
       objOut[key] = obj[key]
     }
-
   });
 
   return objOut;
@@ -64,4 +62,4 @@ const pickHighest = (obj, num = 1) => {
 }
 
 // Out put Top n languages of Parents
-console.log(pickHighest(countLangs(parentsArr),3));
+console.log(pickHighest(countLangs(parentsArr),2));
