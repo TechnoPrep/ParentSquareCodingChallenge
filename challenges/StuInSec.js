@@ -1,4 +1,49 @@
-const {studentsArr, rostersArr, sectionsArr } = require('../index');
+// const { chooseClassName } = require('../index.cjs');
+const { studentsArr, rostersArr, sectionsArr } = require('../index');
+const inquirer = require('inquirer');
+
+
+/**
+ * This function takes in an array of sections, creates a list of unique course_names, orders it, and removes any undefined
+ * @param {*} sectionsArr 
+ * @returns 
+ */
+const sectionArrBuilder = async (sectionsArr) =>{
+
+  let secList = []
+
+  sectionsArr.map((sec) => {
+    if(!(secList.includes(sec.course_name))){
+      secList.push(sec.course_name)
+    }
+  })
+
+  return secList.sort().filter(x => x !== undefined)
+
+}
+
+/**
+ * This function takes in an array of unique course_name, sorted, and prompts the user with a choice of all section names ot choose from.
+ * @param {*} secArr 
+ * @returns 
+ */
+const chooseClassName = async (secArr) => {
+
+  let courseNames = await sectionArrBuilder(secArr);
+
+  const choice = await inquirer.prompt([
+      {
+        type: 'list',
+        message: 'Choose the class to search by',
+        name: 'course_name',
+        choices: courseNames,
+        loop: false,
+      },
+  ])
+
+  return choice.course_name
+
+}
 
 /**
  * This function creates an array of Objects for students who are enrolled in a classname
@@ -8,7 +53,9 @@ const {studentsArr, rostersArr, sectionsArr } = require('../index');
  * @param {*} classname
  * @returns [ {} ]
  */
-const stuInSec = (secArr, rosterArr, stuArr, classname) => {
+const stuInSec = async (secArr, rosterArr, stuArr) => {
+
+  const classname = await chooseClassName(secArr);
 
   // Returns a list of sections that match the Classname provided
   let secList = secArr.filter((sec) => {
@@ -18,7 +65,7 @@ const stuInSec = (secArr, rosterArr, stuArr, classname) => {
   })
 
   // Returns Student Array
-  return stuArr.filter((stu) =>{
+  let results = stuArr.filter((stu) =>{
     // Iterates through the rosterArr
     return rosterArr.some((ros) => {
       // If student_id matches in student and roster file
@@ -38,6 +85,8 @@ const stuInSec = (secArr, rosterArr, stuArr, classname) => {
       last_name: stu.LastName
     }
   })
+
+  console.log(results);
 }
 
-console.log(stuInSec(sectionsArr, rostersArr, studentsArr, 'Physics 9'))
+stuInSec(sectionsArr, rostersArr, studentsArr)
