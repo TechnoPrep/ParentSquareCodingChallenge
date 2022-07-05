@@ -63,6 +63,7 @@ If you are subject to or witness unacceptable behavior, or have any other concer
   1. node TopLangs.js
   2. node StuNoCell.js
   3. node StuInSec.js
+      NOTE: Use the CLI interface to choose which course name you would like to search for.
   4. node MissingParents.js
   5. node SectionMissingEnrollment.js
   6. node SectionAndStudents.js
